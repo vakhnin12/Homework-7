@@ -1,21 +1,24 @@
 function isSymbolPresentInString(word, letter) {
-    let arr = word.split("");
-    for (let value of arr) {
-        if (value === letter) {
-            return true
+    const arr = word.split("");
+    for (const value of arr) {
+        if (value !== letter) {
         } else {
-            return false
+            return true
         }
-    }
+    } return false
 };
-console.log(isSymbolPresentInString("abc", "a"));
-console.log(isSymbolPresentInString("abc", "e"));
+console.log(isSymbolPresentInString("abcd", "c"));
+console.log(isSymbolPresentInString("abcd", "e"));
 
 console.log("");
 
 function getSymbolIndex(word, letter) {
     let arr = word.split("");
-    return arr.indexOf(letter)
+    for (let key in arr) {
+        if (arr[key] === letter) {
+            return key
+        }
+    } return -1
 };
 console.log(getSymbolIndex("hello lol", "h"));
 console.log(getSymbolIndex("hello lol", "l"));
@@ -29,15 +32,15 @@ const a = {
 };
 
 const b = {
-    nickname: "Spiderman",
+    nickname: "Spiderman", work: "Superhero",
     work: "Superhero",
     suit: "red-blue"
 };
 const d = {
     name: "Peter",
-    surname: "Parker"
+    surname: "Parker",
 };
-
+console.log(d)
 function copy(target, origin) {
     const c = {};
     for (let key in target) {
@@ -54,9 +57,7 @@ console.log(copy(a, b));
 console.log("");
 
 function comparison(target, origin) {
-    if (target === origin) {
-        return true
-    } else if (Object.keys(target).length !== Object.keys(origin).length) {
+    if (Object.keys(target).length !== Object.keys(origin).length) {
         return false
     } else {
         for (let key in target) {
@@ -70,7 +71,8 @@ function comparison(target, origin) {
     return true
 }
 
-console.log(comparison(a, d));
+console.log(comparison(a, b));
+
 console.log("");
 
 let string = "aaabbс";
@@ -90,4 +92,4 @@ function letterCounter(word) {
 
 const count = letterCounter(string);
 
-console.log(count)
+console.log(count);

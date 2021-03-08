@@ -40,7 +40,7 @@ const d = {
     name: "Peter",
     surname: "Parker",
 };
-console.log(d)
+
 function copy(target, origin) {
     const c = {};
     for (let key in target) {
